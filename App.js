@@ -5,30 +5,23 @@
  * @format
  * @flow strict-local
  */
-
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/screens/pantalla'
-import Pantalla2 from './src/screens/pantalla'
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-} from 'react-native';
+import Pantalla2 from './src/screens/pantalla2'
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.root}>
-      
-      <Pantalla2 />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login}></Stack.Screen>
+        <Stack.Screen name="Pantalla2" component={Pantalla2}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  }
-});
 
 export default App;

@@ -1,14 +1,14 @@
-import {ScrollView, StyleSheet, Text, View, Image, TextInput, Button, Alert} from 'react-native'
+import {ScrollView, StyleSheet, Text, View, Image, TextInput, Button} from 'react-native'
 import Logo from '../../../assets/img/Logo.png';
 import React from 'react'
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [username, setUsername] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   return (
     <View style={styles.root}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.box1}>
+        <View style={[styles.box, styles.box1]}>
           <Image 
             source={Logo} 
             style={{width: 350, height: 350}} 
@@ -16,7 +16,7 @@ const Login = () => {
           />
         </View>
 
-        <View style={styles.box2}>
+        <View style={[styles.box, styles.box2]}>
           <TextInput
             style={styles.input}
             onChangeText={setUsername}
@@ -40,7 +40,7 @@ const Login = () => {
             style={styles.button}
             title="Ingresar"
             color="#E36F56"
-            onPress={() => Alert.alert('Button with adjusted color pressed')}
+            onPress={() => navigation.navigate('Pantalla2')}
           />
         </View>
       </ScrollView>
@@ -52,33 +52,48 @@ const styles = StyleSheet.create({
   root:{
     alignItems: 'center',
     flex: 1,
-    padding: 15,
+    padding: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: '#FFD4CA'
   },
+  box:{
+    flex:1,
+    AlignItems: 'center',
+  },
   box1: {
-    alignItems: 'center',
-    flex: 1,
+    padding: 5,
+    paddingTop: 5,
+    paddingBottom: 10,
+    margin: 5,
+    marginTop: 5,
+    marginBottom: 5,
   },
   box2: {
-    alignItems: 'center',
-    flex: 1,
+    padding: 5,
+    paddingTop: 5,
+    paddingBottom: 5,
+    margin: 10,
+    marginTop: 5,
+    marginBottom: 5,
   },
   input: {
     borderBottomColor: '#6F4339',
     borderBottomWidth: 1,
     height: 50,
     width: 300,
-    margin: 15,
+    margin: 10,
     padding: 10,
   },
   text: {
     padding: 15,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   button:{
-    width: 300,
-    height: 60,
+    width: '100%',
+    height: '50%',
     padding: 10,
+    margin: 10
   }
 })
 

@@ -1,1 +1,1 @@
-export{ default } from './pantalla2';
+export{ default } from './login';
